@@ -1,4 +1,4 @@
-class MovieFeed {
+class Movie {
   bool adult;
   String backdropPath;
   List<int> genreIds;
@@ -14,7 +14,7 @@ class MovieFeed {
   double voteAverage;
   int voteCount;
 
-  MovieFeed({
+  Movie({
     required this.adult,
     required this.backdropPath,
     required this.genreIds,
