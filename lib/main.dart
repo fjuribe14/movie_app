@@ -17,7 +17,9 @@ void main() async {
   ]);
 
   /** Load .env file */
-  await dotenv.load(fileName: kDebugMode ? '.env' : '.env.prod');
+  await dotenv.load(
+      fileName:
+          kDebugMode ? '.env' : '.env'); // Puedes agregar tu archivo .env aquí
 
   runApp(const MyApp());
 }
