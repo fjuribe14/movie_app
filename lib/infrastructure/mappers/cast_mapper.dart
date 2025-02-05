@@ -15,7 +15,7 @@ class CastMapper {
         character: castdb.character ?? '',
         popularity: castdb.popularity,
         department: castdb.department ?? '',
-        profilePath: castdb.profilePath == ''
+        profilePath: [null, ''].contains(castdb.profilePath)
             ? Environment.urlImageNotFound
             : '${Environment.urlMovieImageSource}${castdb.profilePath}',
         originalName: castdb.originalName,

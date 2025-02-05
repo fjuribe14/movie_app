@@ -1,10 +1,9 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:new_app/config/config.dart';
 import 'package:new_app/presentation/widgets/widgets.dart';
 import 'package:new_app/presentation/providers/providers.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:new_app/presentation/widgets/shared/movie_details_body.dart';
-import 'package:new_app/presentation/widgets/shared/movie_cast_scrollview.dart';
 
 class MovieDetails extends StatelessWidget {
   static const screenName = '/movie_details';
@@ -26,8 +25,13 @@ class MovieDetails extends StatelessWidget {
           image: DecorationImage(
             fit: BoxFit.cover,
             alignment: Alignment.topCenter,
-            image: CachedNetworkImageProvider(ctrl.movie.value.posterPath,
-                cacheKey: ctrl.movie.value.posterPath),
+            image: CachedNetworkImageProvider(
+              ctrl.movie.value.posterPath,
+              cacheKey: ctrl.movie.value.posterPath,
+              errorListener: (p0) {
+                ctrl.movie.value.posterPath = Environment.urlImageNotFound;
+              },
+            ),
           ),
         ),
         child: DecoratedBox(

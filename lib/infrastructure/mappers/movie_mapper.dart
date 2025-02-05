@@ -12,11 +12,11 @@ class MovieMapper {
         overview: moviedb.overview,
         voteCount: moviedb.voteCount,
         popularity: moviedb.popularity,
-        posterPath: moviedb.posterPath == ''
+        posterPath: [null, ''].contains(moviedb.posterPath)
             ? Environment.urlImageNotFound
             : '${Environment.urlMovieImageSource}${moviedb.posterPath}',
         voteAverage: (moviedb.voteAverage * 10).toPrecision(2),
-        backdropPath: moviedb.backdropPath == ''
+        backdropPath: [null, ''].contains(moviedb.backdropPath)
             ? Environment.urlImageNotFound
             : '${Environment.urlMovieImageSource}${moviedb.backdropPath}',
         originalTitle: moviedb.originalTitle,

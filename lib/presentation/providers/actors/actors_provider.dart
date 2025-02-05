@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:new_app/domain/entities/entities.dart';
 import 'package:new_app/domain/repositories/actors_repository.dart';
@@ -5,47 +6,49 @@ import 'package:new_app/domain/repositories/actors_repository.dart';
 class ActorsProvider extends GetxController {
   final RxInt actorID = 0.obs;
   final RxBool isLoading = true.obs;
-  final RxList<Cast> movies = <Cast>[].obs;
-  late Rx<Actor> actor = Actor(
-    id: 0,
-    name: '',
-    adult: false,
-    gender: 0,
-    imdbId: '',
-    biography: '',
-    popularity: 0.0,
-    alsoKnownAs: [],
-    profilePath: '',
-    knownForDepartment: '',
-  ).obs;
+  final RxList<ActorCast> movies = <ActorCast>[].obs;
+
+  late Rx<Actor> actor = emptyActor.obs;
 
   final ActorsRepository actorsRepository;
 
   ActorsProvider({required this.actorsRepository});
 
+  Actor get emptyActor => Actor(
+        id: 0,
+        name: '',
+        adult: false,
+        gender: 0,
+        imdbId: '',
+        biography: '',
+        popularity: 0.0,
+        alsoKnownAs: [],
+        profilePath: '',
+        knownForDepartment: '',
+      );
+
   Future<void> getActorById({required int actorID}) async {
-    isLoading.value = true;
+    try {
+      final data = await actorsRepository.getActorById(actorID: actorID);
+      final dataMovies =
+          await actorsRepository.getActorMovies(actorID: actorID);
 
-    await Future.delayed(const Duration(seconds: 2));
-
-    final data = await actorsRepository.getActorById(actorID: actorID);
-
-    actor.value = data;
-    actor.refresh();
-
-    isLoading.value = false;
+      actor.value = data;
+      movies.value = dataMovies;
+    } catch (e) {
+      debugPrint('$e');
+    }
   }
 
-  Future<void> getActorMovies() async {
-    isLoading.value = true;
+  Future<void> getActorMovies({required int actorID}) async {
+    try {
+      movies.value = [];
 
-    await Future.delayed(const Duration(seconds: 2));
+      final data = await actorsRepository.getActorMovies(actorID: actorID);
 
-    final data = await actorsRepository.getActorMovies(actorID: actorID.value);
-
-    movies.value = data;
-    movies.refresh();
-
-    isLoading.value = false;
+      movies.value = data;
+    } catch (e) {
+      debugPrint('$e');
+    }
   }
 }

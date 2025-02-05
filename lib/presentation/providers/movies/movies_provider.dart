@@ -33,8 +33,6 @@ class MoviesProvider extends GetxController {
   Future<void> loadPage() async {
     isLoading.value = true;
 
-    await Future.delayed(const Duration(seconds: 2));
-
     final data = await moviesRepository.getLatestMovies(page: 1);
 
     movies.value = data;
@@ -43,16 +41,12 @@ class MoviesProvider extends GetxController {
     isLoading.value = false;
   }
 
-  Future<List<Cast>> getCast({required int movieID}) async {
-    if (casts.isNotEmpty && casts.any((e) => e.id == movieID)) {
-      return casts;
-    }
+  Future<void> getCast({required int movieID}) async {
+    if (casts.isNotEmpty && casts.any((e) => e.id == movieID)) return;
 
     final data = await moviesRepository.getMovieCast(movieID: movieID);
 
     casts.value = data;
     casts.refresh();
-
-    return data;
   }
 }

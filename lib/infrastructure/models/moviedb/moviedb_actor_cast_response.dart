@@ -1,28 +1,22 @@
+import 'dart:convert';
 import 'package:new_app/infrastructure/models/models.dart';
 
-class ActorCastDbMoviesResponse {
+class ActorCastResponseDbMovies {
   int id;
-  List<CastDBMovie> cast;
-  List<CastDBMovie> crew;
+  List<ActorCastDbMovies> cast;
 
-  ActorCastDbMoviesResponse({
+  ActorCastResponseDbMovies({
     required this.id,
     required this.cast,
-    required this.crew,
   });
 
-  factory ActorCastDbMoviesResponse.fromJson(Map<String, dynamic> json) =>
-      ActorCastDbMoviesResponse(
-        id: json["id"],
-        cast: List<CastDBMovie>.from(
-            json["cast"].map((x) => CastDBMovie.fromJson(x))),
-        crew: List<CastDBMovie>.from(
-            json["crew"].map((x) => CastDBMovie.fromJson(x))),
-      );
+  factory ActorCastResponseDbMovies.fromRawJson(String str) =>
+      ActorCastResponseDbMovies.fromJson(json.decode(str));
 
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "cast": List<dynamic>.from(cast.map((x) => x.toJson())),
-        "crew": List<dynamic>.from(crew.map((x) => x.toJson())),
-      };
+  factory ActorCastResponseDbMovies.fromJson(Map<String, dynamic> json) =>
+      ActorCastResponseDbMovies(
+        id: json["id"],
+        cast: List<ActorCastDbMovies>.from(
+            json["cast"].map((x) => ActorCastDbMovies.fromJson(x))),
+      );
 }

@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:new_app/presentation/providers/providers.dart';
-import 'package:new_app/presentation/widgets/shared/movie_cast_scrollview.dart';
+import 'package:new_app/presentation/widgets/shared/movies/movie_cast_scrollview.dart';
 
 class MovieDetailsBody extends StatelessWidget {
   final MoviesProvider ctrl;

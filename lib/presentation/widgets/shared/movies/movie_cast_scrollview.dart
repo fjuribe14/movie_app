@@ -49,11 +49,9 @@ class MovieCastScrollview extends StatelessWidget {
                   .map((e) => GestureDetector(
                         onTap: () {
                           actorsProvider.actorID.value = e.id;
+                          actorsProvider.actorID.refresh();
 
-                          Get.toNamed(
-                            ActorDetails.screenName,
-                            arguments: {"actor_id": e.id},
-                          );
+                          Get.toNamed(ActorDetails.screenName);
                         },
                         child: Container(
                           width: 150,

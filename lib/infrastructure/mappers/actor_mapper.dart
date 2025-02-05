@@ -12,7 +12,7 @@ class ActorMapper {
         popularity: actordb.popularity,
         alsoKnownAs: actordb.alsoKnownAs,
         knownForDepartment: actordb.knownForDepartment,
-        profilePath: actordb.profilePath == ''
+        profilePath: [null, ''].contains(actordb.profilePath)
             ? Environment.urlImageNotFound
             : '${Environment.urlMovieImageSource}${actordb.profilePath}',
         biography: actordb.biography,

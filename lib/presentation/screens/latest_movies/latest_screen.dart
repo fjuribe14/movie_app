@@ -18,6 +18,7 @@ class LatestMoviesScreen extends StatelessWidget {
         MovieRepositoryImpl(moviesDatasource: MoviedbMoviesDatasource());
 
     return GetBuilder<MoviesProvider>(
+      autoRemove: false,
       init: MoviesProvider(moviesRepository: movieRepositoryImpl),
       builder: (ctrl) {
         return Scaffold(

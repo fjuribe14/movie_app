@@ -1,4 +1,10 @@
 export 'shared/custom_appbar.dart';
-export 'shared/latest_movies_grid.dart';
-export 'shared/latest_movies_grid_data.dart';
-export 'shared/latest_movies_grid_skeleton.dart';
+export 'shared/actor/actor_info.dart';
+export 'shared/actor/actor_movies_data.dart';
+export 'shared/actor/actor_movies_grid.dart';
+export 'shared/movies/movie_details_body.dart';
+export 'shared/movies/latest_movies_grid.dart';
+export 'shared/actor/actor_info_skeleton.dart';
+export 'shared/actor/actor_movies_skeleton.dart';
+export 'shared/movies/latest_movies_grid_data.dart';
+export 'shared/movies/latest_movies_grid_skeleton.dart';
