@@ -1,16 +1,41 @@
-# new_app
+# Flutter Technical Test
 
-A new Flutter project.
+App para iOS y Android en Flutter, que muestra un catálogo actualizado de películas, utilizando la API de [The Movie Database](https://developer.themoviedb.org/docs/getting-started).
 
-## Getting Started
+![mockup](https://i.imgur.com/TPOK1zV.png){: width="80%" alt="mockup" title="mockup"}
 
-This project is a starting point for a Flutter application.
+## Comenzemos
 
-A few resources to get you started if this is your first Flutter project:
+##### Intalar dependencias
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Primero debemos instalar las dependencias:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+$ flutter pub get
+```
+
+##### Ejecutar la app
+
+Limpiamos todo el cache y builds antiguos:
+
+```
+$ flutter run
+```
+
+##### Compilar la app
+
+Luego podemos compilar la app:
+
+```
+$ flutter clean
+```
+
+Seleccionar la plataforma que deseas compilar:
+
+```
+$ flutter build appbundle
+$ flutter build apk
+$ flutter build ios
+```
+
+Para más información sobre el proyecto puedes visitar [GitHub Repository](https://github.com/fjuribe14/movie_app), donde tendrás acceso a todos los archivos del proyecto.
