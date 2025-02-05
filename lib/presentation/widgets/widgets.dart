@@ -1,4 +1,5 @@
 export 'shared/custom_appbar.dart';
+export 'shared/custom_drawer.dart';
 export 'shared/actor/actor_info.dart';
 export 'shared/actor/actor_movies_data.dart';
 export 'shared/actor/actor_movies_grid.dart';

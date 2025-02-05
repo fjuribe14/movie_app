@@ -22,41 +22,7 @@ class LatestMoviesScreen extends StatelessWidget {
       init: MoviesProvider(moviesRepository: movieRepositoryImpl),
       builder: (ctrl) {
         return Scaffold(
-          drawer: Drawer(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: <Widget>[
-                DrawerHeader(
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                  ),
-                  child: Text(
-                    'Menú',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                    ),
-                  ),
-                ),
-                ListTile(
-                  leading: Icon(Icons.home),
-                  title: Text('Inicio'),
-                  onTap: () {
-                    // Navegar a la pantalla de inicio
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  leading: Icon(Icons.settings),
-                  title: Text('Configuración'),
-                  onTap: () {
-                    // Navegar a la pantalla de configuración
-                    Navigator.pop(context);
-                  },
-                ),
-              ],
-            ),
-          ),
+          drawer: CustomDrawer(),
           body: RefreshIndicator(
             onRefresh: () async => await ctrl.loadPage(),
             child: CustomScrollView(
