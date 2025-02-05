@@ -1,9 +1,7 @@
-import 'package:new_app/domain/entities/movie.dart';
+import 'package:new_app/domain/entities/entities.dart';
 
 abstract class MoviesDatasource {
   Future<List<Movie>> getLatestMovies({int page = 1});
 
-  Future<List<Movie>> getMovieById({required int movieId});
-
-  Future<List<Movie>> getMovieCredits({required int movieId});
+  Future<List<Cast>> getMovieCast({required int movieID});
 }

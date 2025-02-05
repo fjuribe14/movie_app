@@ -1,4 +1,4 @@
-import 'package:new_app/domain/entities/movie.dart';
+import 'package:new_app/domain/entities/entities.dart';
 import 'package:new_app/domain/datasources/movies_datasource.dart';
 import 'package:new_app/domain/repositories/movies_repository.dart';
 
@@ -13,12 +13,7 @@ class MovieRepositoryImpl implements MoviesRepository {
   }
 
   @override
-  Future<List<Movie>> getMovieById({required int movieId}) {
-    return moviesDatasource.getMovieById(movieId: movieId);
-  }
-
-  @override
-  Future<List<Movie>> getMovieCredits({required int movieId}) {
-    return moviesDatasource.getMovieCredits(movieId: movieId);
+  Future<List<Cast>> getMovieCast({required int movieID}) {
+    return moviesDatasource.getMovieCast(movieID: movieID);
   }
 }

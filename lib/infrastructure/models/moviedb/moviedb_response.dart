@@ -1,4 +1,4 @@
-import 'package:new_app/infrastructure/models/moviedb_movie_model.dart';
+import 'package:new_app/infrastructure/models/models.dart';
 
 class MovieDBResponse {
   int page;

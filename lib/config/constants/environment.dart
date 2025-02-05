@@ -8,6 +8,7 @@ class Environment {
   static String apiToken = dotenv.env['API_TOKEN'] ?? '';
   static String apiLanguage = dotenv.env['API_LANGUAGE'] ?? '';
 
+  static String urlPerson = dotenv.env['URL_PERSON'] ?? '';
   static String urlLatestMovies = dotenv.env['URL_LATEST_MOVIES'] ?? '';
   static String urlMovieCredits = dotenv.env['URL_MOVIE_CREDITS'] ?? '';
   static String urlMovieImageSource =
